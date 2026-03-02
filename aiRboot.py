@@ -1,5 +1,5 @@
-import streamlit as st
 import ollama
+import streamlit as st
 
 # 创建ollama客户端
 client = ollama.Client("http://localhost:11434")
