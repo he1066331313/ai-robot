@@ -1,6 +1,6 @@
 from langchain_community.chat_models.tongyi import ChatTongyi
 
-chat = ChatTongyi(model="qwen3-max")
+chat = ChatTongyi(model="qwen3-max-2026-01-23")
 messages = [
     ('system', '你是一个边塞诗人'),
     ('human', '给我写一首诗'),
