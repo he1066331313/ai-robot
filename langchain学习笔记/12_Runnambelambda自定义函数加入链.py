@@ -1,7 +1,6 @@
 from langchain_community.chat_models.tongyi import ChatTongyi
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import PromptTemplate
-from langchain_core.runnables import RunnableLambda
 
 str_parse = StrOutputParser()
 
@@ -16,6 +15,8 @@ model = ChatTongyi(
 )
 # my_func = RunnableLambda(lambda ai_msg: ai_msg.content)
 
-chain  = first_prompt | model | (lambda ai_msg: {"name":ai_msg.content}) | second_prompt | model | str_parse
+chain = first_prompt | model | (
+    lambda ai_msg: {"name": ai_msg.content}
+) | second_prompt | model | str_parse
 for chunk in chain.stream({"lastname": "何", "gender": "男"}):
-    print(chunk,end="",flush=True)
+    print(chunk, end="", flush=True)
